@@ -1,0 +1,22 @@
+import numpy as np
+
+def bubble_sort(arr):
+    n = len(arr)
+    flag = 0
+    # Traverse through all elements in the array
+    for i in range(n):
+        print(i)
+        # Last i elements are already in place, so we don't need to check them again
+        for j in range(0, n-i-1):
+            # Swap if the element found is greater than the next element
+            if arr[j] > arr[j+1]:
+                flag = flag + 1
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return flag  # Return the value of flag after sorting
+
+# Example usage:
+arr = np.random.randint(1, 100, size=50)  # Generate a random array of 50 integers between 1 and 100
+print("Original array:", arr)
+swaps = bubble_sort(arr)
+print("Sorted array:", arr)
+print("Number of swaps:", swaps)
